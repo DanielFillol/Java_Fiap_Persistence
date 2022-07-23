@@ -49,9 +49,7 @@ public class TipoLiro {
         TipoLiro tipoLiro = (TipoLiro) o;
 
         if (id != tipoLiro.id) return false;
-        if (tipoLivro != null ? !tipoLivro.equals(tipoLiro.tipoLivro) : tipoLiro.tipoLivro != null) return false;
-
-        return true;
+        return tipoLivro != null ? tipoLivro.equals(tipoLiro.tipoLivro) : tipoLiro.tipoLivro == null;
     }
 
     @Override
@@ -59,5 +57,10 @@ public class TipoLiro {
         int result = id;
         result = 31 * result + (tipoLivro != null ? tipoLivro.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString(){
+        return id + " - " + tipoLivro;
     }
 }

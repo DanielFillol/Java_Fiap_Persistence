@@ -1,9 +1,11 @@
+package crud;
+
 import jpa_exemple.LivrosTr;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-public class create {
+public class delete {
     public static void main(String[] args) {
         EntityManager entityManager = null;
 
@@ -12,13 +14,18 @@ public class create {
             entityManager = Persistence.createEntityManagerFactory("default").createEntityManager();
             entityManager.getTransaction().begin();
 
-            //Create new OBJ
-            LivrosTr livro = new LivrosTr();
-            livro.setBookName("Isso é um novo livro");
+            //Find object on database
+            LivrosTr recoverd = entityManager.find(LivrosTr.class, 900);
 
-            //Save OBJ in the database
-            entityManager.persist(livro);
+            //Print using toString() function
+            System.out.println(recoverd);
+
+            //Delete
+            entityManager.remove(recoverd);
             entityManager.getTransaction().commit();
+
+            //Print using toString() function
+            System.out.println(recoverd);
 
         }catch (Exception e){
             // IF error discard changes

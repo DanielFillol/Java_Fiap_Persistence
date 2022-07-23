@@ -1,9 +1,11 @@
+package crud;
+
 import jpa_exemple.LivrosTr;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-public class retrive_from_database {
+public class retrive_and_update {
     public static void main(String[] args) {
         EntityManager entityManager = null;
 
@@ -14,6 +16,14 @@ public class retrive_from_database {
 
             //Find object on database
             LivrosTr recoverd = entityManager.find(LivrosTr.class, 900);
+
+            //Print using toString() function
+            System.out.println(recoverd);
+
+            //Alter and persist on database
+            recoverd.setBookName("Hogwarts: A History");
+            entityManager.persist(recoverd);
+            entityManager.getTransaction().commit();
 
             //Print using toString() function
             System.out.println(recoverd);
