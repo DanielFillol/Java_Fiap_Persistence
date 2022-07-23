@@ -34,6 +34,10 @@ public class LivrosTr {
     @Column(name = "Status")
     private String status;
 
+    @JoinColumn(name = "livro_tipo")
+    @ManyToOne
+    private  TipoLiro livroTipo;
+
     public int getId() {
         return id;
     }
@@ -123,7 +127,10 @@ public class LivrosTr {
         if (anoPub != null ? !anoPub.equals(livrosTr.anoPub) : livrosTr.anoPub != null) return false;
         if (link != null ? !link.equals(livrosTr.link) : livrosTr.link != null) return false;
         if (error != null ? !error.equals(livrosTr.error) : livrosTr.error != null) return false;
-        return status != null ? status.equals(livrosTr.status) : livrosTr.status == null;
+        if (status != null ? !status.equals(livrosTr.status) : livrosTr.status != null) return false;
+        if (livroTipo != null ? !livroTipo.equals(livrosTr.livroTipo) : livrosTr.livroTipo != null) return false;
+
+        return true;
     }
 
     @Override
@@ -137,11 +144,12 @@ public class LivrosTr {
         result = 31 * result + (link != null ? link.hashCode() : 0);
         result = 31 * result + (error != null ? error.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (livroTipo != null ? livroTipo.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString(){
-        return id + " - " + bookName;
+        return id + " - " + bookName + " - " + livroTipo.getTipoLivro();
     }
 }
