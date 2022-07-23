@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Banco_Teste@localhost" uuid="32465d82-7f0c-4960-ab53-033b65513752">
+    <data-source source="LOCAL" name="default/Hibernate" uuid="4bd89c26-6d62-4793-8722-3272ecb7e4ab">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+/Users/danielfillol/Documents/GitHub/GO_API_Rest/Java_Fiap_Persistence/src/main/resources/META-INF/persistence.xml</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/Banco_Teste</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
